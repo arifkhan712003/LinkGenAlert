@@ -1,0 +1,6 @@
+c:\users\mohkh\documents\visual studio 2013\Projects\AlertGeneratorService\AlertGeneratorService\bin\Debug\AlertGeneratorService.exe.config
+c:\users\mohkh\documents\visual studio 2013\Projects\AlertGeneratorService\AlertGeneratorService\bin\Debug\AlertGeneratorService.exe
+c:\users\mohkh\documents\visual studio 2013\Projects\AlertGeneratorService\AlertGeneratorService\bin\Debug\AlertGeneratorService.pdb
+c:\users\mohkh\documents\visual studio 2013\Projects\AlertGeneratorService\AlertGeneratorService\obj\Debug\AlertGeneratorService.csprojResolveAssemblyReference.cache
+c:\users\mohkh\documents\visual studio 2013\Projects\AlertGeneratorService\AlertGeneratorService\obj\Debug\AlertGeneratorService.exe
+c:\users\mohkh\documents\visual studio 2013\Projects\AlertGeneratorService\AlertGeneratorService\obj\Debug\AlertGeneratorService.pdb
