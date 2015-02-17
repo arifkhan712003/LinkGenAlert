@@ -8,6 +8,6 @@
 
         int FileSizeInBytes { get; set; }
 
-        int TenentId { get; set; }
+        int SubscriberId { get; set; }
     }
 }

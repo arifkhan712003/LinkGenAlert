@@ -7,7 +7,7 @@ namespace AlertGeneratorService
 {
     class AlertThreshold : IAlertThreshold
     {
-        public int TenentId { get; set; }
+        public int SubscriberId { get; set; }
 
         public int AllowedVolume { get; set; }
 

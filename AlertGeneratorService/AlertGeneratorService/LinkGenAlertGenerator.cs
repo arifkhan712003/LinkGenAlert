@@ -44,7 +44,7 @@ namespace AlertGeneratorService
         {
             int alertDurationInSeconds = Convert.ToInt32(ConfigurationManager.AppSettings["alertDurationInSeconds"]);
             
-            Dictionary<int, LinkGenProcessedData> linkGenProcessedDatas = new LinkGenDataProcessor().GetProcessedData(startTime,durationInSeconds);
+            Dictionary<int, AttributeData> linkGenProcessedDatas = new LinkGenDataProcessor().GetProcessedData(startTime,durationInSeconds);
 
             new LinkGenDbHelper().StoreAlertData(linkGenProcessedDatas);
             
@@ -66,12 +66,13 @@ namespace AlertGeneratorService
         {
             LinkGenDbHelper linkGenDbHelper = new LinkGenDbHelper();
 
-            LinkGenProcessedData alertData = linkGenDbHelper.FetchAlertData(tenentId, alertDurationInSeconds);
+            AttributeData alertData = linkGenDbHelper.FetchAlertData(tenentId, alertDurationInSeconds);
 
             IAlertThreshold alertThreshold = linkGenDbHelper.FetchAlertThreshold(tenentId);
 
             //do necessary comparrison
-            return alertData.FileSizeInBytes > alertThreshold.AllowedVolume;
+            //return alertData.FileSizeInBytes > alertThreshold.AllowedVolume;
+            return false;
         }
 
     }

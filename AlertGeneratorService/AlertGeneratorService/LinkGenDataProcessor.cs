@@ -5,32 +5,28 @@ namespace AlertGeneratorService
 {
     public class LinkGenDataProcessor
     {
-        public Dictionary<int, LinkGenProcessedData> GetProcessedData(DateTime startTime, int durationInSeconds)
+        public Dictionary<int, AttributeData> GetProcessedData(DateTime startTime, int durationInSeconds)
         {
-            var processedLinkGenDatas = new Dictionary<int, LinkGenProcessedData>();
+            var processedLinkGenDatas = new Dictionary<int, AttributeData>();
             
             var rawLinkGenDatas = GetLastUsage(startTime, durationInSeconds);
 
             foreach (var rawLinkGenData in rawLinkGenDatas)
             {
-                int tenentId = rawLinkGenData.TenentId;
-
-                if (processedLinkGenDatas.ContainsKey(tenentId))
+                if (processedLinkGenDatas.ContainsKey(rawLinkGenData.SubscriberId))
                 {
-                    LinkGenProcessedData linkGenProcessedData = processedLinkGenDatas[tenentId];
-                    linkGenProcessedData.FileCount += 1;
-                    linkGenProcessedData.FileSizeInBytes += rawLinkGenData.FileSizeInBytes;
+                    AttributeData attributeData = processedLinkGenDatas[rawLinkGenData.SubscriberId];
+                    attributeData.AttributeValue += 1;
                 }
                 else
                 {
-                    var linkGenProcessedData = new LinkGenProcessedData
+                    var linkGenProcessedData = new AttributeData
                     {
-                        TenentId = rawLinkGenData.TenentId,
-                        FileCount = 1,
-                        FileSizeInBytes = rawLinkGenData.FileSizeInBytes
+                        SubscriberId = rawLinkGenData.SubscriberId,
+                        AttributeValue = 1,
                     };
 
-                    processedLinkGenDatas.Add(rawLinkGenData.TenentId,linkGenProcessedData);
+                    processedLinkGenDatas.Add(rawLinkGenData.SubscriberId,linkGenProcessedData);
                 }
             }
 
